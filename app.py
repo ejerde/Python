@@ -1,41 +1,38 @@
-from banking_pkg import account
-#customer atm selection menu
-def atm_menu(name):
-    print("")
-    print("          === Automated Teller Machine ===          ")
-    print("User: " + name)
-    print("------------------------------------------")
-    print("| 1.    Balance     | 2.    Deposit      |")
-    print("------------------------------------------")
-    print("------------------------------------------")
-    print("| 3.    Withdraw    | 4.    Logout       |")
-    print("------------------------------------------")
-#Customer Registration 
-print("          === Automated Teller Machine ===          ")
-name = input("Enter name to register:")
-pin = input("Enter PIN:")
-balance = 0
-print(name, "has been registered with a starting balance of $" + str(balance))
-#Customer Login while loop
-print("LOGIN")
+"""
+Workshop 3 Assigment
+By Eric Jerde
+10/14/2023
+"""
+
+from donations_pkg.homepage import donate, show_donations, show_homepage
+from donations_pkg.user import register, login
+
+database = {"admin" : "password",
+            "Eric" : "1234"
+}
+donations = []
+authorized_user = ""
+
 while True:
-    name_to_validate = input("Enter Name:")
-    pin_to_validate = input("Enter Pin:")
-    if name_to_validate == name and pin_to_validate == pin: 
-        print("Login Successful")
+    show_homepage(authorized_user) #user
+
+    choice = input("Choose an option:") #menu selection
+    if choice == "1":
+        username = input("\nEnter username:")
+        password = input("Enter password:")
+        authorized_user = login(database, username,password)
+    elif choice == "2":
+        username = input("\nEnter username:")
+        password = input("Enter password:")
+        authorized_user = register(database, username, password)
+    elif choice == "3":
+        if authorized_user == "":
+            print("\nYou are not logged in.")
+        else:
+            donation = donate(authorized_user)
+            donations.append(donation)
+    elif choice == "4":
+        show_donations(donations)
+    elif choice == "5":
+        print("\nLeaving DonateMe...")
         break
-    else:
-        print("Invalid Credentials!")
-        continue
-#ATM menu while loop
-while True:
-    (atm_menu(name))
-    option = input("Choose an Option:")
-    if option == "1":
-        account.show_balance(balance)
-    elif option == "2":
-        account.deposit(balance)
-    elif option == "3":
-        account.withdraw(balance)
-    elif option == "4":
-        account.logout(name)

@@ -1,6 +1,4 @@
 """
-Python Fundamentals
-Portfolio project
 By Eric Jerde
 rev 1.2
 10/23/2023

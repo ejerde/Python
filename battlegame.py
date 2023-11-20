@@ -1,5 +1,5 @@
 """
-Workshop 1
+
 battlegame.py
 by Eric Jerde
 09/30/2023

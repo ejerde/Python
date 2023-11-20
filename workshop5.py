@@ -1,5 +1,5 @@
 """
-Workshop 5 Assignment
+Random number generator with driver code
 By Eric Jerde
 10/28/2023
 """

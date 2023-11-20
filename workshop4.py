@@ -1,6 +1,6 @@
 
 """
-Week 4 workshop 
+Bank app 
 By: Eric Jerde
 Date: 10/21/2023
 """
